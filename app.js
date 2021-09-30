@@ -14,7 +14,9 @@ app.listen(process.env.PORT || 3000,function(req,res)
    console.log("Hello i am running");
 })
 
-mongoose.connect("mongodb://localhost:27017/todolistDB2")
+mongoURI =  "mongodb+srv://userDemo:rajbir@cluster0.ekzp7.mongodb.net/todolistDB2" 
+
+mongoose .connect(mongoURI, { useNewUrlParser: true }) .then(() => console.log("MongoDB connected")) .catch((err) => console.log(err));
 
 const itemSchema=new mongoose.Schema({
     name:String
@@ -203,8 +205,4 @@ app.post("/delete",function(req,res)
          }
      })   
     }
-
-
-   
-
 })
